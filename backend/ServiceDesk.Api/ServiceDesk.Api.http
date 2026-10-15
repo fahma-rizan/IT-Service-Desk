@@ -1,6 +1,35 @@
-@ServiceDesk.Api_HostAddress = http://localhost:5041
+@host = http://localhost:5041
 
-GET {{ServiceDesk.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
 
-###
+{
+  "fullName": "Test Employee",
+  "email": "employee1@example.com",
+  "password": "Password123"
+}
+
+### 2. Who am I
+GET {{host}}/api/auth/me
+
+### 3. Logout
+POST {{host}}/api/auth/logout
+
+### 4. Login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "employee1@example.com",
+  "password": "Password123"
+}
+
+### 5. Login with a wrong password
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "employee1@example.com",
+  "password": "WrongPassword1"
+}
