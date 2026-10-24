@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { MyTicketsPage } from './pages/MyTicketsPage'
 import { NewTicketPage } from './pages/NewTicketPage'
+import { TicketDetailPage } from './pages/TicketDetailPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/tickets" element={<MyTicketsPage />} />
           <Route path="/tickets/new" element={<NewTicketPage />} />
+          <Route path="/tickets/:id" element={<TicketDetailPage />} />
         </Route>
       </Route>
 
