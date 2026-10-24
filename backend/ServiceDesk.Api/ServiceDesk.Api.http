@@ -33,3 +33,40 @@ Content-Type: application/json
   "email": "employee1@example.com",
   "password": "WrongPassword1"
 }
+
+### 6. Categories (log in first)
+GET {{host}}/api/categories
+
+### 7. Create a ticket
+POST {{host}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Printer on floor 2 is jammed",
+  "description": "The printer shows a paper jam error and will not print.",
+  "categoryId": 6,
+  "type": "Incident",
+  "priority": "High"
+}
+
+### 8. My tickets
+GET {{host}}/api/tickets/my
+
+### 9. My tickets filtered by status
+GET {{host}}/api/tickets/my?status=Open
+
+### 10. My tickets with a search word
+GET {{host}}/api/tickets/my?search=printer
+
+### 11. One ticket
+GET {{host}}/api/tickets/1
+
+### 12. Invalid category
+POST {{host}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Bad category test",
+  "description": "This should be rejected by the server.",
+  "categoryId": 999
+}
